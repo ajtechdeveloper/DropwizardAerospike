@@ -52,13 +52,13 @@ public class StudentResource {
     private void getStudentData(int i) {
         logger.info("********** Call " + String.valueOf(i) + " Started **********");
         logger.info("Call " + String.valueOf(i) + ": {}",
-                CacheConfigManager.getInstance().getStudentDataFromCache("S100",studentService,
+                CacheConfigManager.getInstance().getStudentData("S100",studentService,
                         aerospikeClient, config));
         logger.info("Call " + String.valueOf(i) + ": {}",
-                CacheConfigManager.getInstance().getStudentDataFromCache("M101",studentService,
+                CacheConfigManager.getInstance().getStudentData("M101",studentService,
                         aerospikeClient, config));
         logger.info("Call " + String.valueOf(i) + ": {}",
-                CacheConfigManager.getInstance().getStudentDataFromCache("P102",studentService,
+                CacheConfigManager.getInstance().getStudentData("P102",studentService,
                         aerospikeClient, config ));
         logger.info("********** Call " + String.valueOf(i) + " Ended **********");
     }

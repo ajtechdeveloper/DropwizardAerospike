@@ -18,8 +18,8 @@ public class CacheConfigManager {
     }
 
     //Logic For Student Cache
-    public Student getStudentDataFromCache(String key, StudentService studentService,
-                                           AerospikeClient aerospikeClient, DropwizardAerospikeConfiguration config) {
+    public Student getStudentData(String key, StudentService studentService,
+                                  AerospikeClient aerospikeClient, DropwizardAerospikeConfiguration config) {
         try {
             Student student = studentService.getFromCache(aerospikeClient,key,
                     config.getNamespace(), config.getSetName());
