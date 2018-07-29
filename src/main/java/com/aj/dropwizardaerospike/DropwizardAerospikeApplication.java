@@ -27,13 +27,13 @@ public class DropwizardAerospikeApplication extends Application<DropwizardAerosp
 	@Override
 	public void run(DropwizardAerospikeConfiguration config, Environment env)
 			throws Exception {
-		AerospikeClient client = new AerospikeClient("172.28.128.3", 3000);
-	    AerospikeManaged aerospikeManaged = new AerospikeManaged(client);
+		AerospikeClient aerospikeClient = new AerospikeClient("172.28.128.3", 3000);
+	    AerospikeManaged aerospikeManaged = new AerospikeManaged(aerospikeClient);
         env.lifecycle().manage(aerospikeManaged);
 	    StudentService studentService = new StudentService();
 	    logger.info("Registering RESTful API resources");
 		env.jersey().register(new PingResource());
-        env.jersey().register(new StudentResource(studentService, client, config));
+        env.jersey().register(new StudentResource(studentService, aerospikeClient, config));
 		env.healthChecks().register("DropwizardCacheHealthCheck",
 				new DropwizardAerospikeHealthCheckResource(config));
 	}
