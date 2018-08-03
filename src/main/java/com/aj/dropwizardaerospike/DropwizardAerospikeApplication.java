@@ -34,7 +34,7 @@ public class DropwizardAerospikeApplication extends Application<DropwizardAerosp
 	    logger.info("Registering RESTful API resources");
 		env.jersey().register(new PingResource());
         env.jersey().register(new StudentResource(studentService, aerospikeClient, config));
-		env.healthChecks().register("DropwizardCacheHealthCheck",
+		env.healthChecks().register("DropwizardAerospikeHealthCheck",
 				new DropwizardAerospikeHealthCheckResource(config));
 	}
 }
