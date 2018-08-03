@@ -21,6 +21,6 @@ public class DropwizardAerospikeHealthCheckResource extends HealthCheck {
         if("DropwizardAerospike".equalsIgnoreCase(appName)) {
             return Result.healthy();
         }
-        return Result.unhealthy("DropwizardRedis Service is down");
+        return Result.unhealthy("DropwizardAerospike Service is down");
     }
 }
